@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주도 - 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("https://lh5.googleusercontent.com/proxy/FtYPU15Xd9aglFZt5p159tiqzyrvFhyL-P2_jowbhQ9REIYxB-6eWo5Uf2-RFSonSjojhig8ue-0Yt8mAw2FDlctWzLZmawBHPnxcSWfQB9jvlSeL-r64Il1scjkn-sCG3GhAO1qntSPdKZ8PGxEK8M");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgba(135, 206, 235, 0.3);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            color: #250505; 
+            font-size: 1.8em;
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s ease; 
+        }
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9); 
+        }
+
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999;
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+        .prev-page-arrow, .next-page-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.prev-page-arrow:hover, .next-page-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-page-arrow {
+    left: 10px;
+}
+
+.next-page-arrow {
+    right: 10px;
+}
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+
+        function ToEnglish() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = 'Citrus fruits were important tribute items during the Goryeo and Joseon dynasties and were celebrated through the Hwanggamje exam. However, the tribute of citrus fruits was a great labor and burden for the people of Jeju Island. In modern times, citrus fruits have become a major source of income for Jeju farmers, but the production of citrus fruits is in crisis due to the opening of imports of foreign agricultural products through the Free Trade Agreement (FTA).';
+            const translatedHeader = 'Jeju\'s Representative Specialty';
+            const translatedSubHeader = 'Citrus';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToKorean() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '감귤은 고려와 조선시대에 중요한 진상품으로, 과거 시험인 황감제를 통해 경축될 만큼 귀한 과실이었다. 하지만 감귤 진상은 제주도민에게 큰 노역과 부담이었다. 현대에는 감귤이 제주 농가의 주요 수입원이 되었으나, 자유무역협정(FTA)으로 외국산 농산물의 수입이 개방되면서 감귤 생산이 위기에 처해 있다.';
+            const translatedHeader = '제주도의 대표 특산품';
+            const translatedSubHeader = '감귤';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToJapanese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '柑橘類は、高麗時代と朝鮮時代に重要な貢物であり、科挙試験の黄柑制を通じて祝われたほど貴重な果物でした。しかし、柑橘類の貢物は済州島の人々にとって大きな労働と負担でした。現代では、柑橘類は済州農家の主要な収入源となりましたが、自由貿易協定（FTA）によって外国産農産物の輸入が開放され、柑橘類の生産が危機に瀕しています。';
+            const translatedHeader = '済州島の代表特産品';
+            const translatedSubHeader = '柑橘類';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToChinese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '柑橘在高丽和朝鲜王朝时期是重要的贡品，通过科举考试的黄柑制而被庆祝。然而，柑橘的贡品对济州岛居民来说是一种巨大的劳动和负担。在现代，柑橘已成为济州农户的主要收入来源，但由于自由贸易协定（FTA）开放了外国农产品的进口，柑橘生产面临危机。';
+            const translatedHeader = '济州的代表特产';
+            const translatedSubHeader = '柑橘';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        window.onload = function() {
+            alert("여기는 제주도입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>제주도의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>감귤</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qghFQVdkEJ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p id="text-to-translate">감귤은 고려와 조선시대에 중요한 진상품으로, 과거 시험인 황감제를 통해 경축될 만큼 귀한 과실이었다. 하지만 감귤 진상은 제주도민에게 큰 노역과 부담이었다. 현대에는 감귤이 제주 농가의 주요 수입원이 되었으나, 자유무역협정(FTA)으로 외국산 농산물의 수입이 개방되면서 감귤 생산이 위기에 처해 있다.</p>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+    <button class="next-page-arrow">&#10095;</button>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수원 - 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+    .prev-page-arrow, .next-page-arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    .prev-page-arrow:hover, .next-page-arrow:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .prev-page-arrow {
+        left: 10px;
+    }
+
+    .next-page-arrow {
+        right: 10px}
+
+
+      body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("https://as1.ftcdn.net/v2/jpg/02/39/44/86/1000_F_239448604_Y4khZgQadJLJgqqEul0qmPXJCbriRr4q.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: royalblue;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+        }
+
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #250505;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure the menu is above other content */
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px; /* Adjust the top position for larger screens */
+            }
+        }
+
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+
+
+        function ToEnglish() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = 'Suwon Galbi is a representative local food of Suwon, made by marinating beef ribs with salt, sesame oil, green onions, garlic, pepper, sugar, and sesame seeds and grilling them. It started at Hwacheonok and gained nationwide fame. The ribs are large, with a length of 10-13 cm, and it is characterized by not using soy sauce or seasonings. Thanks to the salt seasoning, the meat retains its original color and texture.';
+            const translatedHeader = 'Suwon\'s Representative Specialty';
+            const translatedSubHeader = 'Suwon Galbi';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToKorean() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '수원갈비는 소갈비를 소금, 참기름, 파, 마늘, 후추, 설탕, 통깨 등으로 양념해 구운 수원의 대표 향토음식이다. 화춘옥에서 시작되어 전국적으로 명성을 얻었으며, 갈빗대의 길이가 10~13㎝로 크고, 간장과 조미료를 사용하지 않는 것이 특징이다. 소금 양념 덕분에 고기의 색이 변형되지 않고 육질과 색깔을 그대로 유지할 수 있다.';
+            const translatedHeader = '수원의 대표 특산품';
+            const translatedSubHeader = '수원갈비';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToJapanese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = 'スウォンカルビは、牛カルビを塩、ごま油、ネギ、ニンニク、コショウ、砂糖、ごまなどで味付けして焼いたスウォンの代表的な郷土料理です。ファチュノクで始まり、全国的に名声を得ました。カルビの長さは10〜13㎝と大きく、醤油や調味料を使用しないのが特徴です。塩の味付けのおかげで、肉の色が変わらず、肉質と色をそのまま保つことができます。';
+            const translatedHeader = 'スウォンの代表的な特産品';
+            const translatedSubHeader = 'スウォンカルビ';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToChinese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '水原排骨是水原的代表性地方食品，用盐、香油、葱、大蒜、胡椒、糖和芝麻腌制牛排骨并烤制而成。它起源于花村屋，并在全国范围内声名鹊起。排骨大，长10-13厘米，其特点是不使用酱油或调味料。由于用盐调味，肉保持了原来的颜色和质地。';
+            const translatedHeader = '水原的代表特产';
+            const translatedSubHeader = '水原排骨';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        window.onload = function() {
+            alert("여기는 수원입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>수원의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+            <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>수원갈비</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/upM30yUHbms?si=nXuMWMhU5YrmeH7Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p id="text-to-translate">수원갈비는 소갈비를 소금, 참기름, 파, 마늘, 후추, 설탕, 통깨 등으로 양념해 구운 수원의 대표 향토음식이다. 화춘옥에서 시작되어 전국적으로 명성을 얻었으며, 갈빗대의 길이가 10~13㎝로 크고, 간장과 조미료를 사용하지 않는 것이 특징이다. 소금 양념 덕분에 고기의 색이 변형되지 않고 육질과 색깔을 그대로 유지할 수 있다.</p>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+    <button class="next-page-arrow">&#10095;</button>
+
+</body>
+
+</html>

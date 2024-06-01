@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>천안 - 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("https://www.cheonan.go.kr/cmm/fms/getImage.do?atchFileId=FILE_000000000003752&fileSn=1");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgb(162, 81, 81);
+            padding: 10px 0;
+            color: white;
+            position: relative;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+        }
+
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #250505;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999;
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+        .prev-page-arrow, .next-page-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.prev-page-arrow:hover, .next-page-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-page-arrow {
+    left: 10px;
+}
+
+.next-page-arrow {
+    right: 10px;
+}
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+
+        function ToEnglish() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = 'Hodu-gwaja, a representative specialty snack of Cheonan, is made by baking dough shaped like walnuts and filled with red bean paste and walnuts from Gwangdeok-myeon. It was first made in 1933 by Hak-hwa Hodu-gwaja Bakery. Walnuts are rich in nutrients such as omega-3 fatty acids, protein, and vitamins B1 and B2.';
+            const translatedHeader = 'Cheonan\'s Representative Specialty';
+            const translatedSubHeader = 'Hodu-gwaja';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToKorean() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '천안시를 대표하는 명물 과자인 호두과자는 광덕면에서 생산되는 호두와 팥소, 밀가루를 주원료로 하여 호두 모양으로 구워서 만든다. 1933년에 조귀금의 학화 호두과자 제과점에서 처음 만들어졌다. 호두에는 오메가 3 지방산, 단백질, 비타민 B1, B2 등 우리 몸에 좋은 영양 성분이 풍부하다.';
+            const translatedHeader = '천안의 대표 특산품';
+            const translatedSubHeader = '호두과자';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToJapanese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '天安市を代表する名物菓子であるクルミ菓子は、クァンドク面で生産されたクルミと小豆あん、小麦粉を主原料として、クルミの形に焼き上げたものです。 1933年に趙貴金の学花クルミ菓子製菓店で初めて作られました。 クルミにはオメガ3脂肪酸、タンパク質、ビタミンB1、B2など体に良い栄養成分が豊富です。';
+            const translatedHeader = '天安の代表特産品';
+            const translatedSubHeader = 'クルミ菓子';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToChinese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '天安市的代表性名品小吃胡桃饼是用光德面生产的胡桃和红豆馅、小麦粉为主要原料，烤成胡桃形状。 它是由赵贵金的学花胡桃饼饼店于1933年首次制作的。 胡桃富含omega-3脂肪酸、蛋白质和维生素B1、B2等对人体有益的营养成分。';
+            const translatedHeader = '天安的代表特产';
+            const translatedSubHeader = '胡桃饼';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        window.onload = function() {
+            alert("여기는 천안입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>천안의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+            <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>호두과자</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/XJtroJ3xdAs?si=BqUGlnqRgyjPongz" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p id="text-to-translate">천안시를 대표하는 명물 과자인 호두과자는 광덕면에서 생산되는 호두와 팥소, 밀가루를 주원료로 하여 호두 모양으로 구워서 만든다. 1933년에 조귀금의 학화 호두과자 제과점에서 처음 만들어졌다. 호두에는 오메가 3 지방산, 단백질, 비타민 B1, B2 등 우리 몸에 좋은 영양 성분이 풍부하다.</p>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+    <button class="next-page-arrow">&#10095;</button>
+</body>
+
+</html>

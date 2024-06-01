@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서울 - 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           background-image: url(https://img.freepik.com/free-photo/seoul-cityscape-twilight-south-korea_335224-273.jpg?t=st=1716190534~exp=1716194134~hmac=162d6617d2c91cae0143878dd8e69c33f05beee2db93b6efc25e7e507a69c842&w=1380);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: black;
+            padding: 10px 0;
+            color: white;
+            position: relative;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+        }
+
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #250505;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure the menu is above other content */
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px; /* Adjust the top position for larger screens */
+            }
+        }
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+        .prev-page-arrow, .next-page-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.prev-page-arrow:hover, .next-page-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-page-arrow {
+    left: 10px;
+}
+
+.next-page-arrow {
+    right: 10px;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+        function ToKorean() {
+        const textElement = document.getElementById('text-to-translate');
+        const headerElement = document.querySelector('header h1');
+        const subHeaderElement = document.querySelector('.info-page h2');
+
+        // 한국어로 번역된 텍스트로 변경
+        const translatedText = '기원은 신라시대까지 거슬러 올라가며, 고려시대에 이어 조선시대에도 태조 이래 역대 왕들이 동대문 밖 전농동(典農洞)[지금의 동대문구 제기동] 선농단에 적전(籍田)을 마련하고 경칩(驚蟄) 뒤의 첫 번째 해일(亥日)에 제(祭)를 지낸 뒤 친히 쟁기를 잡고 밭을 갈아 보임으로써 농사의 소중함을 만백성에게 알리는 의식을 행하였다. 행사 때 모여든 많은 사람을 대접하기 위하여 쇠뼈를 곤 국물에 밥을 말아 낸 것이 오늘날의 설렁탕이라고 한다. 원래 이름은 선농단에서 유래된 선농탕이었는데 음이 변하여 설렁탕이 되었다. 구로 지역의 경우 1980년대 이전까지 설렁탕집이 그리 많지 않았지만 도시 재개발에 따른 주택의 가치가 올라가고 식생활 수준이 높아짐에 따라 설렁탕과 수육을 찾는 사람들이 늘었다. 요즘은 설렁탕 음식점들이 전문화, 대형화, 체인화의 경향을 보이면서 동시에 설렁탕을 전통적인 방법으로 끓이기 위해 가마솥을 설치하는 등 맛을 개선하는 데 힘쓰고 있다.';
+        const translatedHeader = '서울의 대표 특산품';
+        const translatedSubHeader = '설렁탕';
+
+        // 번역된 텍스트를 HTML 요소에 적용
+        textElement.innerHTML = translatedText;
+        headerElement.innerHTML = translatedHeader;
+        subHeaderElement.innerHTML = translatedSubHeader;
+    }
+
+    function ToEnglish() {
+        const textElement = document.getElementById('text-to-translate');
+        const headerElement = document.querySelector('header h1');
+        const subHeaderElement = document.querySelector('.info-page h2');
+
+        // 영어로 번역된 텍스트로 변경
+        const translatedText = 'The origin goes back to the Silla Dynasty, and since King Taejo in the Joseon Dynasty, following the Goryeo Dynasty, kings since King Taejo organized a 籍 in Jeonnong-dong (典農) outside Dongdaemun (now Jegi-dong, Dongdaemun-gu) Seonnongdan, held a ritual on the first tidal wave (亥) after Gyeongchip (驚蟄), and held a ritual to inform all the people of the importance of farming by personally setting up a plow and changing the field. Todays Seolleongtang is said to be a rice rolled up in a soup made of iron bones to serve many people gathered at the event. Originally, the name was Seonnongtang, which originated from Seonnongdan, but the sound changed and became Seolleongtang. In the case of the Guro area, there were not many Seolleongtang restaurants until the 1980s, but as the value of houses increased due to urban redevelopment and the standard of dietary life increased, more people visited Seolleongtang and boiled pork. These days, Seolleongtang restaurants are trying to improve the taste of Seolleongtang by installing cauldron to boil it in a traditional way, while showing a tendency to specialize, enlarge, and chainize.';
+        const translatedHeader = 'Representative Specialty of Seoul';
+        const translatedSubHeader = 'Seolleongtang';
+
+        // 번역된 텍스트를 HTML 요소에 적용
+        textElement.innerHTML = translatedText;
+        headerElement.innerHTML = translatedHeader;
+        subHeaderElement.innerHTML = translatedSubHeader;
+    }
+
+    function ToJapanese() {
+        const textElement = document.getElementById('text-to-translate');
+        const headerElement = document.querySelector('header h1');
+        const subHeaderElement = document.querySelector('.info-page h2');
+
+        // 일본어로 번역된 텍스트로 변경
+        const translatedText = '起源は新羅時代まで遡り、高麗時代に続き朝鮮時代にも太祖以来、歴代の王たちが東大門外の田農洞[今の東大門区祭基洞]禅農団に積田を設け、啓蟄(驚蟄)の後の最初の津波に祭を行った後、自らすきをつかんで畑を耕して見せることで、農作業の大切さを万民に知らせる儀式を行った。 行事の時に集まった多くの人をもてなすために、牛骨を持ったスープにご飯を入れたのが今日のソルロンタンだという。 本来の名前はソンノンダンから由来したソンノンタンだったが、音が変わってソルロンタンになった。 九老地域の場合、1980年代以前までソルロンタン屋がそれほど多くなかったが、都市再開発にともなう住宅の価値が上がり、食生活水準が高くなるにつれ、ソルロンタンとスユクを訪れる人が増えた。 最近はソルロンタンの飲食店が専門化、大型化、チェーン化の傾向を示し、同時にソルロンタンを伝統的な方法で作るために釜を設置するなど味の改善に努めている。';
+        const translatedHeader = 'ソウルの代表的な特産品';
+        const translatedSubHeader = 'ソルロンタン';
+
+        // 번역된 텍스트를 HTML 요소에 적용
+        textElement.innerHTML = translatedText;
+        headerElement.innerHTML = translatedHeader;
+        subHeaderElement.innerHTML = translatedSubHeader;
+    }
+
+    function ToChinese() {
+        const textElement = document.getElementById('text-to-translate');
+        const headerElement = document.querySelector('header h1');
+        const subHeaderElement = document.querySelector('.info-page h2');
+
+        // 중국어로 번역된 텍스트로 변경
+        const translatedText = '起源可追溯到新罗时代，继高丽时代之后，朝鲜时代太祖以来历代君王在东大门外的典农洞（典農洞，现在的东大门区祭基洞）先农坛上准备敌田，在惊蛰后的第一个海啸（亥）举行祭祀后，亲自抓犁耕田，向全体百姓展示农耕的重要性。 为了招待活动时聚集的很多人,用牛骨熬汤泡饭,这就是今天的先农汤。 原名源于先农坛的先农汤,后来变音后变成了先农汤。 九老地区在1980年代以前,先农汤店并不多,但随着城市再开发,住宅价值的提高和饮食水平的提高,购买先农汤和白切肉的人越来越多。 如今，牛杂碎汤饭店呈现出专业化、大型化、连锁化的趋势，同时，为了用传统的方法煮牛杂碎汤，还设置了铁锅，努力改善味道。';
+        const translatedHeader = '首尔的代表特产';
+        const translatedSubHeader = '雪浓汤（特级';
+
+        // 번역된 텍스트를 HTML 요소에 적용
+        textElement.innerHTML = translatedText;
+        headerElement.innerHTML = translatedHeader;
+        subHeaderElement.innerHTML = translatedSubHeader;
+    }
+
+        window.onload = function() {
+            alert("여기는 서울입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>서울의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+            <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>설렁탕</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/C3T73e9Glf0?si=ek4v6U0veJzfFvGd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p id="text-to-translate">기원은 신라시대까지 거슬러 올라가며, 고려시대에 이어 조선시대에도 태조 이래 역대 왕들이 동대문 밖 전농동(典農洞)[지금의 동대문구 제기동] 선농단에 적전(籍田)을 마련하고 경칩(驚蟄) 뒤의 첫 번째 해일(亥日)에 제(祭)를 지낸 뒤 친히 쟁기를 잡고 밭을 갈아 보임으로써 농사의 소중함을 만백성에게 알리는 의식을 행하였다. 행사 때 모여든 많은 사람을 대접하기 위하여 쇠뼈를 곤 국물에 밥을 말아 낸 것이 오늘날의 설렁탕이라고 한다. 원래 이름은 선농단에서 유래된 선농탕이었는데 음이 변하여 설렁탕이 되었다. 구로 지역의 경우 1980년대 이전까지 설렁탕집이 그리 많지 않았지만 도시 재개발에 따른 주택의 가치가 올라가고 식생활 수준이 높아짐에 따라 설렁탕과 수육을 찾는 사람들이 늘었다. 요즘은 설렁탕 음식점들이 전문화, 대형화, 체인화의 경향을 보이면서 동시에 설렁탕을 전통적인 방법으로 끓이기 위해 가마솥을 설치하는 등 맛을 개선하는 데 힘쓰고 있다.
+
+                [출처] 한국학중앙연구원 - 향토문화전자대전
+               </p>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+    <button class="next-page-arrow">&#10095;</button>
+</body>
+</html> 

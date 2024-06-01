@@ -1,0 +1,407 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국을 빛낸 대표 인물소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: slategrey;
+        }
+
+        header {
+            text-align: center;
+            background-color: #FFD700;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: darkslategrey;
+            padding: 10px;
+        }
+
+        .nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 1em;
+            color: #555;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        .section {
+            padding-top: 50px;
+        }
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure the menu is above other content */
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+    </style>
+    <script>
+   function toggleMenu() {
+    const menu = document.querySelector('.translate-menu');
+    menu.classList.toggle('active');
+}   
+function ToKorean() {
+        // Change text to Korean
+        document.querySelector('header h1').innerText = '한국을 빛낸 대표 인물소개';
+        document.querySelector('.nav a[href="#sports"]').innerText = '스포츠';
+        document.querySelector('.nav a[href="#culture"]').innerText = '문화';
+        document.querySelector('.nav a[href="#history"]').innerText = '역사';
+        document.querySelectorAll('.card-title')[3].innerText = '박인비';
+        document.querySelectorAll('.card-title')[7].innerText = '송강호';
+        document.querySelectorAll('.card-title')[11].innerText = '김구';
+        document.querySelectorAll('.card-text')[3].innerText = "박인비는 대한민국의 프로 골프 선수로, LPGA 투어에서 활동하고 있다. 그녀는 메이저 대회에서 7번 우승하며, 골프 역사상 가장 뛰어난 여성 선수 중 한 명으로 평가받고 있다. 박인비는 2013년, 한 해에 3개의 메이저 대회를 석권하며 골프계의 주목을 받았다. 그녀의 안정적인 퍼팅과 일관된 경기력은 많은 팬들에게 감동을 주었으며, '퍼팅의 여왕'이라는 별명을 얻었다. 또한, 2016년 리우 올림픽에서 금메달을 획득하며 대한민국 여자 골프의 위상을 세계에 알렸다. 박인비는 현재까지도 꾸준한 활약을 이어가며 전 세계 골프 팬들에게 큰 영감을 주고 있다.";
+        document.querySelectorAll('.card-text')[7].innerText = "송강호는 대한민국의 배우로, 뛰어난 연기력과 다양한 역할 소화력으로 국제적인 명성을 얻고 있다. 그는 '살인의 추억', '괴물', '밀양', '설국열차', '택시운전사' 등 다양한 영화에서 주연을 맡아 깊이 있는 연기를 선보였다. 특히, 봉준호 감독의 '기생충'에서는 주인공 김기택 역을 맡아 강렬한 연기를 펼치며, 영화가 칸 영화제 황금종려상과 아카데미 작품상을 수상하는 데 크게 기여했다. 송강호는 그의 연기력으로 칸 영화제, 아시아태평양 스크린 어워드 등 다양한 국제 영화제에서 수상하며, 한국을 대표하는 배우로 자리매김했다. 그의 캐릭터 해석 능력과 감정 표현력은 많은 관객들에게 깊은 인상을 남겼고, 송강호는 오늘날까지도 활발한 활동을 이어가며 전 세계 영화 팬들에게 큰 영감을 주고 있다.";
+        document.querySelectorAll('.card-text')[11].innerText = "김구는 대한민국의 독립운동가이자 정치가로, 일제 강점기 동안 독립운동을 이끈 지도자이다. 백범 김구로도 알려진 그는 대한민국 임시정부의 주석으로 활동하며, 조국의 독립을 위해 헌신하였다. 김구는 '백범일지'를 저술하여 자신의 삶과 독립운동의 과정을 기록하였으며, 이는 후세에 큰 영향을 주었다. 그는 광복 후에도 통일된 대한민국의 건국을 위해 노력하였으나, 1949년 암살당하였다. 김구는 한국 역사에서 독립과 자유를 위해 싸운 위대한 지도자로 기억되며, 그의 애국정신은 오늘날까지 많은 이들에게 영감을 주고 있다.";
+        document.querySelectorAll('.card-title')[0].innerText = '류현진';
+        document.querySelectorAll('.card-title')[1].innerText = '페이커';
+        document.querySelectorAll('.card-title')[2].innerText = '손흥민';
+        document.querySelectorAll('.card-text')[0].innerText = "류현진은 대한민국의 프로 야구 선수로, 메이저리그(MLB)에서 활약하며 한국 야구의 위상을 높이고 있는 뛰어난 투수이다. 2013년, LA 다저스와 계약하며 메이저리그에 진출한 류현진은 첫 시즌부터 안정적인 투구로 팀의 중요한 선발 투수로 자리 잡았다. 그는 2019년 시즌에서 특히 뛰어난 활약을 보이며, 평균자책점(ERA) 2.32로 리그 1위를 기록하며 사이영상 후보에 오르기도 했다.";
+        document.querySelectorAll('.card-text')[1].innerText = "페이커(이상혁)는 대한민국의 프로게이머로, 리그 오브 레전드(푸하하) 역사상 가장 뛰어난 선수 중 한 명이다. 2013년 SK Telecom T1(현재의 T1)에 입단하여 데뷔한 이후, 뛰어난 게임 실력과 전략적 이해로 팀을 여러 차례 세계 챔피언으로 이끌었다. 그는 LOL 월드 챔피언십에서 세 번(2013, 2015, 2016) 우승을 차지하며, '미드라이너의 신'이라는 별칭을 얻었다. 그의 놀라운 피지컬, 창의적인 플레이 스타일, 압도적인 경기력은 많은 이들에게 영감을 주었으며, 성실하고 겸손한 태도로 많은 팬들과 동료들에게 존경받고 있다.";
+        document.querySelectorAll('.card-text')[2].innerText = "손흥민은 대한민국의 축구 선수로 포지션은 공격수이다. 현재 잉글랜드 프리미어리그의 토트넘 홋스퍼와 대한민국 축구 국가대표팀에서 활동하고 있으며 두 팀의 주장을 맡고 있다. 그는 구단에서의 활약을 바탕으로 역대 최고의 아시아 축구 선수 중 한 명으로 간주되고 있다. 손흥민은 뛰어난 드리블, 속도, 정확한 슈팅 능력으로 유명하며, 팀을 위한 헌신적인 플레이로 많은 이들에게 존경받고 있다. 또한, 그는 대한민국 국가대표팀의 주축 선수로, 아시안 게임 금메달과 월드컵에서의 활약을 통해 국가적인 영웅으로 불리고 있다.";
+        document.querySelectorAll('.card-title')[4].innerText = 'Bts';
+    document.querySelectorAll('.card-title')[5].innerText = '싸이';
+    document.querySelectorAll('.card-title')[6].innerText = '봉준호';
+    
+    document.querySelectorAll('.card-text')[4].innerText = "BTS(방탄소년단)는 대한민국의 보이 그룹으로, 2013년에 데뷔하였다. RM, 진, 슈가, 제이홉, 지민, 뷔, 정국으로 구성된 이 그룹은 현재 세계적인 인기를 누리고 있다. BTS는 음악, 퍼포먼스, 팬과의 소통에서 탁월한 역량을 보여주며, 'Love Yourself' 시리즈와 'Map of the Soul' 시리즈 등 다양한 앨범을 통해 자아 발견, 사랑, 사회적 이슈 등 깊이 있는 메시지를 전달한다. 이들은 빌보드 차트 1위 기록과 그래미 어워드 노미네이트 등 국제적인 성과를 이루었으며, 유엔 연설과 사회적 캠페인에 참여하며 글로벌 아티스트로 존경받고 있다.";
+    document.querySelectorAll('.card-text')[5].innerText = "싸이(Psy)는 대한민국의 가수로, '강남스타일'로 세계적인 신드롬을 일으켰다. 2012년에 발표된 '강남스타일'은 유튜브 조회수 40억 회를 넘기며 글로벌 히트를 기록했고, 싸이는 이 곡으로 국제적인 인지도를 얻었다. 그의 독창적인 음악과 유머러스한 뮤직비디오, 중독성 있는 춤은 많은 이들에게 큰 인기를 끌었다. 싸이는 '젠틀맨', '대디' 등 후속곡들도 성공시키며, K-pop의 글로벌 확산에 큰 기여를 했다. 그의 음악은 경쾌하고 유쾌한 에너지로 많은 팬들에게 사랑받고 있으며, 싸이는 전 세계적인 스타로 자리매김하고 있다.";
+    document.querySelectorAll('.card-text')[6].innerText = "봉준호는 대한민국의 영화 감독으로, '기생충'으로 칸 영화제 황금종려상과 아카데미 작품상을 수상한 인물이다. '살인의 추억', '괴물', '마더', '설국열차', '옥자' 등 다양한 작품에서 독창적인 연출과 사회적 메시지를 담은 스토리로 국제적인 인정을 받았다. 특히 '기생충'은 2019년 칸 영화제에서 황금종려상을 수상하고, 2020년 아카데미 시상식에서 작품상, 감독상, 각본상, 국제영화상을 수상하며 전 세계적으로 큰 반향을 일으켰다. 봉준호는 그의 영화적 비전과 탁월한 연출력으로 많은 이들에게 큰 영감을 주고 있으며, 한국 영화의 국제적 위상을 높이는 데 큰 기여를 하고 있다.";
+    document.querySelectorAll('.card-title')[8].innerText = '세종대왕';
+    document.querySelectorAll('.card-title')[9].innerText = '이순신';
+    document.querySelectorAll('.card-title')[10].innerText = '신사임당';
+    
+    document.querySelectorAll('.card-text')[8].innerText = "세종대왕은 조선 제4대 왕으로 한글 창제를 통해 한국 역사에 큰 공헌을 한 위대한 인물입니다. 그의 통치 기간 동안 과학, 경제, 군사 등 다양한 분야에서 혁신적인 정책을 시행하였습니다. 세종대왕의 업적 중 가장 큰 것은 한글의 창제로, 이는 오늘날까지도 한국 문화의 중요한 부분을 차지하고 있습니다.";
+    document.querySelectorAll('.card-text')[9].innerText = "이순신은 조선 시대의 뛰어난 장군으로, 임진왜란 당시 왜군을 상대로 여러 차례 해전에서 승리를 거두며 나라를 지킨 영웅입니다. 특히 한산도 대첩과 명량 해전에서의 전략적 승리는 그의 뛰어난 지휘 능력을 보여줍니다. 충무공 이순신은 오늘날까지도 한국의 위대한 역사적 인물로 존경받고 있습니다.";
+    document.querySelectorAll('.card-text')[10].innerText = "신사임당은 조선 시대의 예술가이자 교육자로, 대한민국 역사에서 중요한 인물 중 하나로 평가받는다. 본명은 신인선이며, 그녀는 한국의 대표적인 여성 예술가로 그림, 시, 자수 등 다양한 예술 분야에서 뛰어난 재능을 보였다. 그녀의 작품은 섬세하고 자연을 잘 표현한 것으로 유명하다. 또한, 신사임당은 훌륭한 어머니로도 알려져 있는데, 그녀의 아들인 율곡 이이는 조선 시대의 대표적인 학자로 성장하였다. 신사임당은 현재 한국의 50,000원 지폐에 초상화가 그려져 있으며, 한국 문화와 예술의 발전에 기여한 인물로 존경받고 있다.";
+}
+
+    function ToEnglish() {
+        // Change text to English
+        document.querySelector('header h1').innerText = 'Representative Figures Who Shined Korea';
+        document.querySelector('.nav a[href="#sports"]').innerText = 'Sports';
+        document.querySelector('.nav a[href="#culture"]').innerText = 'Culture';
+        document.querySelector('.nav a[href="#history"]').innerText = 'History';
+        document.querySelectorAll('.card-title')[3].innerText = 'Park Inbee';
+        document.querySelectorAll('.card-title')[7].innerText = 'Song Kang-ho';
+        document.querySelectorAll('.card-title')[11].innerText = 'Kim Gu';
+        document.querySelectorAll('.card-text')[3].innerText = "Park Inbee is a professional golfer from South Korea who is active on the LPGA Tour. She has won 7 major championships, establishing herself as one of the greatest female players in golf history. In 2013, she captured 3 major titles in a single season, garnering attention in the golfing world. Her consistent putting and steady play have impressed many fans, earning her the nickname 'Queen of Putting'. Additionally, she won a gold medal at the 2016 Rio Olympics, further elevating the status of South Korean women's golf on the global stage. Park Inbee continues to inspire golf fans worldwide with herconsistent performances to this day.";
+        document.querySelectorAll('.card-text')[7].innerText = "Song Kang-ho is a South Korean actor known for his exceptional acting skills and ability to portray diverse roles, earning international acclaim. He has starred in various films such as 'Memories of Murder', 'The Host', 'Secret Sunshine', 'Snowpiercer', and 'A Taxi Driver', delivering profound performances. Particularly, in Bong Joon-ho's 'Parasite', he portrayed the character Kim Ki-taek, delivering a powerful performance that contributed significantly to the film winning the Palme d'Or at the Cannes Film Festival and the Academy Award for Best Picture. Song Kang-ho has been recognized at various international film festivals including Cannes and the Asia Pacific Screen Awards, establishing himself as a leading actor representing South Korea. His ability to interpret characters and express emotions has left a deep impression on many audiences, and Song Kang-ho continues to inspire film fans worldwide.";
+        document.querySelectorAll('.card-text')[11].innerText = "Kim Gu was a Korean independence activist and politician who led the independence movement during the Japanese colonial period. Also known as Baekbeom Kim Gu, he served as the president of the Provisional Government of the Republic of Korea and dedicated himself to the independence of his homeland. Kim Gu authored the 'Baekbeom Ilji' ('Diary of Baekbeom'), documenting his life and the process of the independence movement, which had a significant impact on future generations. He continued to strive for the establishment of a unified Republic of Korea even after liberation but was assassinated in 1949. Kim Gu is remembered as a great leader who fought for independence and freedom in Korean history, and his patriotism continues to inspire many people today.";
+        document.querySelectorAll('.card-title')[0].innerText = 'Ryu Hyun-jin';
+        document.querySelectorAll('.card-title')[1].innerText = 'Faker';
+        document.querySelectorAll('.card-title')[2].innerText = 'Son Heung-min';
+        document.querySelectorAll('.card-text')[0].innerText = "Ryu Hyun-jin is a South Korean professional baseball player who has been active in Major League Baseball (MLB) and is an outstanding pitcher who has raised the status of Korean baseball. Ryu Hyun-jin signed with the LA Dodgers in 2013 and entered the Major Leagues, quickly establishing himself as an important starting pitcher for the team. In particular, he showed outstanding performance in the 2019 season, recording a league-leading earned run average (ERA) of 2.32, making him a candidate for the Cy Young Award.";
+        document.querySelectorAll('.card-text')[1].innerText = "Faker (Lee Sang-hyeok) is a South Korean professional gamer and one of the greatest players in the history of League of Legends (LoL). After debuting with SK Telecom T1 (now T1) in 2013, Faker led the team to several world championships with his outstanding gaming skills and strategic understanding. He won the LOL World Championship three times (2013, 2015, 2016) and earned the nickname 'God of Mid Lane'. His amazing physical abilities, creative play style, and overwhelming performance have inspired many, and he is respected by many fans and colleagues for his diligent and humble attitude.";
+        document.querySelectorAll('.card-text')[2].innerText = "Son Heung-min is a South Korean football player who plays as a forward. He currently plays for Tottenham Hotspur in the English Premier League and the South Korean national football team, serving as captain for both teams. He is considered one of the greatest Asian football players of all time based on his performance for the club. Son Heung-min is known for his excellent dribbling, speed, and accurate shooting ability, and he is admired by many for his dedicated play for the team. He is also hailed as a national hero for his contributions to the South Korean national team, winning gold medals at the Asian Games and his performances in the World Cup.";
+        document.querySelectorAll('.card-title')[4].innerText = 'Bts';
+    document.querySelectorAll('.card-title')[5].innerText = 'Psy';
+    document.querySelectorAll('.card-title')[6].innerText = 'Bong Joon-ho';
+    
+    document.querySelectorAll('.card-text')[4].innerText = "BTS, also known as the Bangtan Boys, is a South Korean boy band that debuted in 2013. Comprising RM, Jin, Suga, J-Hope, Jimin, V, and Jungkook, the group enjoys immense popularity worldwide. BTS demonstrates exceptional abilities in music, performance, and communication with fans, conveying profound messages of self-discovery, love, and social issues through various albums such as the 'Love Yourself' and 'Map of the Soul' series. They have achieved international success, topping the Billboard charts and receiving Grammy nominations, while also being respected as global artists through their UN speeches and participation in social campaigns.";
+    document.querySelectorAll('.card-text')[5].innerText = "Psy, also known as Park Jae-sang, is a South Korean singer who caused a global sensation with 'Gangnam Style'. Released in 2012, 'Gangnam Style' surpassed 4 billion views on YouTube, making it a global hit and earning Psy international recognition. His unique music, humorous music videos, and addictive dance moves gained immense popularity. Psy's follow-up songs like 'Gentleman' and 'Daddy' also achieved success, contributing to the global spread of K-pop. His music, characterized by lively and cheerful energy, is loved by many fans worldwide, establishing Psy as a global star.";
+    document.querySelectorAll('.card-text')[6].innerText = "Bong Joon-ho is a South Korean film director known for 'Parasite', which won the Palme d'Or at the Cannes Film Festival and the Academy Award for Best Picture. With diverse works such as 'Memories of Murder', 'The Host', 'Mother', 'Snowpiercer', and 'Okja', Bong has received international acclaim for his original direction and stories with social messages. 'Parasite' particularly made a significant impact by winning the Palme d'Or in 2019 at Cannes and sweeping the Oscars in 2020, winning Best Picture, Director, Original Screenplay, and International Feature Film awards, creating a global sensation. Bong Joon-ho inspires many with his cinematic vision and outstanding filmmaking, contributing greatly to raising the international status of Korean cinema.";
+    document.querySelectorAll('.card-title')[8].innerText = 'King Sejong';
+    document.querySelectorAll('.card-title')[9].innerText = 'Admiral Yi Sun-sin';
+    document.querySelectorAll('.card-title')[10].innerText = 'Shin Saimdang';
+    
+    document.querySelectorAll('.card-text')[8].innerText = "King Sejong, the fourth king of the Joseon Dynasty, made significant contributions to Korean history through the creation of Hangul. During his reign, he implemented innovative policies in various fields such as science, economy, and military. His greatest achievement was the creation of Hangul, which continues to be an important part of Korean culture to this day.";
+    document.querySelectorAll('.card-text')[9].innerText = "Admiral Yi Sun-sin was an outstanding military general during the Joseon Dynasty, who achieved numerous victories against the Japanese navy during the Imjin War, protecting the country. His strategic victories at the battles of Hansan Island and Myeongnyang demonstrate his exceptional leadership skills. Admiral Yi Sun-sin is still revered as a great historical figure in Korea to this day.";
+    document.querySelectorAll('.card-text')[10].innerText = "Shin Saimdang was an artist and educator during the Joseon Dynasty, recognized as one of the important figures in Korean history. Her real name was Shin In-seon, and she exhibited exceptional talent in various artistic fields such as painting, poetry, and embroidery. Her works are known for their delicacy and depiction of nature. Additionally, Shin Saimdang is also known as an excellent mother, as her son, Yulgok Yi I, grew up to be one of the most prominent scholars of the Joseon Dynasty. Shin Saimdang's portrait is currently featured on the 50,000 won bill in Korea, and she is respected for her contributions to the development of Korean culture and art.";
+}
+
+function ToJapanese() {
+    // Change text to Japanese
+    document.querySelector('header h1').innerText = '韓国を輝かせた代表的な人物紹介';
+    document.querySelector('.nav a[href="#sports"]').innerText = 'スポーツ';
+    document.querySelector('.nav a[href="#culture"]').innerText = '文化';
+    document.querySelector('.nav a[href="#history"]').innerText = '歴史';
+    document.querySelectorAll('.card-title')[3].innerText = 'パク・インビ';
+    document.querySelectorAll('.card-title')[7].innerText = 'ソン・ガンホ';
+    document.querySelectorAll('.card-title')[11].innerText = 'キム・グ';
+    document.querySelectorAll('.card-text')[3].innerText = "パク・インビは韓国のプロゴルファーで、LPGAツアーで活躍しています。彼女はメジャー大会で7回優勝し、ゴルフ史上最も優れた女性選手の1人として評価されています。彼女は2013年に1シーズンで3つのメジャータイトルを獲得し、ゴルフ界の注目を集めました。彼女の安定したパッティングと一貫したプレーは多くのファンに感銘を与え、彼女は 'パッティングの女王'というニックネームを得ました。また、2016年のリオオリンピックで金メダルを獲得し、世界に韓国女子ゴルフの地位を高めました。パク・インビは現在も世界中のゴルフファンに大きなインスピレーションを与え続けています。";
+    document.querySelectorAll('.card-text')[7].innerText = "ソン・ガンホは韓国の俳優で、優れた演技力と多彩な役柄を演じる力で国際的な名声を得ています。彼は '살인의 추억'、 '괴물'、 '밀양'、 '설국열차'、 '택시운전사'など、さまざまな映画で主演を務め、深い演技を披露しました。特に、ボン・ジュノ監督の '기생충'では、キム・ギテク役を演じ、映画がカンヌ映画祭でパルムドールを受賞し、アカデミー作品賞を受賞するのに大きく貢献しました。ソン・ガンホはカンヌ映画祭やアジア太平洋スクリーンアワードなど、さまざまな国際映画祭で表彰され、韓国を代表する俳優としての地位を確立しました。彼のキャラクターの解釈力と感情の表現力は多くの観客に深い印象を残し、ソン・ガンホは今日も世界中の映画ファンに大きなインスピレーションを与え続けています。";
+    document.querySelectorAll('.card-text')[11].innerText = "キム・グは韓国の独立運動家であり政治家であり、日本の植民地時代に独立運動を指導した指導者です。また、白凡キム・グとしても知られており、大韓民国臨時政府の大統領を務め、祖国の独立に尽力しました。キム・グは自身の生活と独立運動の過程を記録した '白凡日誌'を著し、これは後の世代に大きな影響を与えました。彼は解放後も統一された大韓民国の建設に努めましたが、1949年に暗殺されました。キム・グは韓国の歴史の中で独立と自由のために戦った偉大な指導者として記憶されており、彼の愛国心は今日でも多くの人々にインスピレーションを与えています";
+    document.querySelectorAll('.card-title')[0].innerText = 'リュ・ヒョンジン';
+    document.querySelectorAll('.card-title')[1].innerText = 'Faker（フェイカー）';
+    document.querySelectorAll('.card-title')[2].innerText = 'ソン・フンミン';
+    document.querySelectorAll('.card-text')[0].innerText = "류현진は大韓民国のプロ野球選手で、メジャーリーグ（MLB）で活躍し、韓国野球の地位を高めています。2013年、LAドジャースと契約してメジャーリーグに参加したリュ・ヒョンジンは、最初のシーズンからチームの重要な先発投手として地位を確立しました。彼は2019年のシーズンで特に優れた活躍を見せ、防御率（ERA）2.32でリーグ1位になり、サイヤング賞の候補にも挙がりました。";
+    document.querySelectorAll('.card-text')[1].innerText = "Faker（イサンヒョク）は韓国のプロゲーマーであり、リーグ・オブ・レジェンド（LoL）史上最も偉大な選手の一人です。2013年、SK Telecom T1（現在のT1）に入団して以来、優れたゲームスキルと戦略的理解力でチームを何度も世界チャンピオンに導きました。彼はLOLワールドチャンピオンシップで3回（2013年、2015年、2016年）優勝し、「ミッドライナーの神」という異名を得ました。彼の驚異的なフィジカル、独創的なプレースタイル、圧倒的な戦闘力は多くの人々にインスピレーションを与え、誠実で謙虚な態度で多くのファンや同僚から尊敬されています。";
+    document.querySelectorAll('.card-text')[2].innerText = "ソン・フンミンは韓国のサッカー選手であり、ポジションはフォワードです。現在、イングランドのプレミアリーグのトッテナム・ホットスパーと韓国のサッカー代表チームで活躍し、両チームの主将を務めています。彼はクラブでの活躍をもとに歴代最高のアジアのサッカー選手の一人と見なされています。ソン・フンミンは優れたドリブル、スピード、正確なシュート能力で知られており、チームのために献身的なプレーで多くの人々から尊敬を受けています。また、彼は韓国代表チームの中心選手として、アジア大会の金メダルやワールドカップでの活躍を通じて国家的な英雄とされています。";
+    document.querySelectorAll('.card-title')[4].innerText = 'Bts';
+    document.querySelectorAll('.card-title')[5].innerText = 'サイ';
+    document.querySelectorAll('.card-title')[6].innerText = 'ポン・ジュノ';
+    
+    document.querySelectorAll('.card-text')[4].innerText = "BTS（防弾少年団）は2013年にデビューした韓国の男性アイドルグループです。RM、ジン、SUGA、J-HOPE、ジミン、V、ジョングクからなるこのグループは、現在、世界的な人気を誇っています。BTSは音楽、パフォーマンス、ファンとのコミュニケーションで優れた能力を発揮し、「Love Yourself」シリーズや「Map of the Soul」シリーズなど、さまざまなアルバムを通じて自己発見、愛、社会問題などの深いメッセージを伝えています。彼らはビルボードチャートで1位を獲得し、グラミー賞にノミネートされるなど、国際的な成功を収め、国連の演説や社会運動への参加を通じて、世界的なアーティストとして尊敬されています。";
+    document.querySelectorAll('.card-text')[5].innerText = "サイ（Psy）は韓国の歌手で、「江南スタイル」で世界的なブームを巻き起こしました。2012年にリリースされた「江南スタイル」はYouTubeで40億回以上の再生回数を記録し、世界的なヒットとなり、サイはこの曲で国際的な知名度を得ました。彼の独創的な音楽、ユーモラスなミュージックビデオ、中毒性のあるダンスは多くのファンに大きな人気を博しました。サイは「ジェントルマン」や「ダディ」などの後続曲でも成功を収め、K-popの世界的な普及に大きく貢献しました。彼の音楽は明るく楽しいエネルギーで多くのファンに愛されており、サイは世界的なスターとして確固たる地位を築いています。";
+    document.querySelectorAll('.card-text')[6].innerText = "ポン・ジュノは韓国の映画監督であり、「パラサイト」でカンヌ国際映画祭のパルム・ドールとアカデミー賞作品賞を受賞した人物です。彼の作品である「殺人の記憶」、「ホスト」、「マザー」、「ソルゲッチョルチャ」、「オクジャ」などは、ユニークな演出と社会的なメッセージを含んだストーリーで国際的な評価を得ています。特に「パラサイト」は2019年のカンヌ国際映画祭でパルム・ドールを受賞し、2020年のアカデミー賞で作品賞、監督賞、脚本賞、国際長編映画賞を獲得し、世界的な反響を呼びました。ポン・ジュノはその映画的なビジョンと優れた映画製作で多くの人々に大きなインスピレーションを与え、韓国映画の国際的な地位向上に大きく貢献しています。";
+    document.querySelectorAll('.card-title')[8].innerText = '世宗大王';
+    document.querySelectorAll('.card-title')[9].innerText = '李舜臣';
+    document.querySelectorAll('.card-title')[10].innerText = '申師任堂';
+    
+    document.querySelectorAll('.card-text')[8].innerText = "世宗大王は、朝鮮の第4代王であり、ハングルの創作を通じて韓国の歴史に重要な貢献をしました。彼の統治期間中、彼は科学、経済、軍事など、さまざまな分野で革新的な政策を実施しました。世宗大王の最も偉大な功績は、ハングルの創造であり、今日でも韓国文化の重要な一部です。";
+    document.querySelectorAll('.card-text')[9].innerText = "李舜臣は朝鮮時代の優れた軍人であり、壬辰倭乱の際、何度も日本の海軍に勝利を収め、国を守りました。特に、韓山島大捷や明良江の海戦での戦略的勝利は、彼の優れた指揮能力を示しています。李舜臣は今日でも韓国で偉大な歴史的人物として尊敬されています。";
+    document.querySelectorAll('.card-text')[10].innerText = "申師任堂は朝鮮時代の芸術家兼教育者であり、韓国史上重要な人物の一人として評価されています。彼女の本名は申仁善であり、彼女は絵画、詩、刺繍など、さまざまな芸術分野で優れた才能を示しました。彼女の作品は繊細さと自然の描写で知られています。また、申師任堂は優れた母親としても知られており、彼女の息子である李栗谷は朝鮮時代の代表的な学者の一人に成長しました。申師任堂の肖像は現在、韓国の5万ウォン紙幣に描かれており、韓国文化と芸術の発展に貢献した人物として尊敬されています。";
+}
+    function ToChinese() {
+        // Change text to Chinese
+        document.querySelector('header h1').innerText = '照亮韩国的代表人物介绍';
+        document.querySelector('.nav a[href="#sports"]').innerText = '体育';
+        document.querySelector('.nav a[href="#culture"]').innerText = '文化';
+        document.querySelector('.nav a[href="#history"]').innerText = '历史';
+        document.querySelectorAll('.card-title')[3].innerText = '朴仁妃';
+        document.querySelectorAll('.card-title')[7].innerText = '宋康昊';
+        document.querySelectorAll('.card-title')[11].innerText = '金九';
+        document.querySelectorAll('.card-text')[3].innerText = "朴仁妃是一位来自韩国的职业高尔夫球手，活跃在LPGA巡回赛中。她已经赢得了7个大满贯冠军，成为了高尔夫历史上最杰出的女选手之一。2013年，她一年内夺得了3个大满贯冠军，引起了高尔夫界的关注。她稳定的推杆技术和稳定的表现给许多球迷留下了深刻的印象，赢得了“推杆女王”的称号。此外，她还在2016年里约奥运会上获得了金牌，进一步提升了韩国女子高尔夫在全球舞台上的地位。朴仁妃继续激励着全球高尔夫球迷。";
+
+        document.querySelectorAll('.card-text')[7].innerText = "宋康昊是一位韩国演员，以其出色的表演技巧和扮演多样化角色的能力而闻名于世。他出演了许多电影，如“杀人回忆”，“怪物”，“密阳”，“雪国列车”和“的士司机”，展现了深刻的表演。特别是在奉俊昊的《寄生虫》中，他扮演了金基泽一角，表现出色，为影片赢得了戛纳电影节金棕榈奖和奥斯卡最佳影片奖做出了重大贡献。宋康昊曾在戛纳电影节和亚太影展等多个国际电影节上获奖，确立了他作为代表韩国的一流演员的地位。他解释角色的能力和表达情感的能力给观众留下了深刻印象，宋康昊继续激励着全球电影迷。";
+
+        document.querySelectorAll('.card-text')[11].innerText = "金九是一位韩国独立运动家和政治家，在日本殖民时期领导了独立运动。又称白凡金九，他担任过大韩民国临时政府的总统，并致力于祖国的独立。金九撰写了《白凡日志》，记录了自己的生活和独立运动的过程，对后世产生了重大影响。他在解放后继续努力建立统一的大韩民国，但在1949年遭到暗杀。金九被认为是韩国历史上为独立和自由而奋斗的伟大领袖，他的爱国精神至今仍然激励着许多人。";
+        document.querySelector('header h1').innerText = '介绍照亮韩国的代表人物';
+        document.querySelector('.nav a[href="#sports"]').innerText = '体育';
+        document.querySelector('.nav a[href="#culture"]').innerText = '文化';
+        document.querySelector('.nav a[href="#history"]').innerText = '历史';
+        document.querySelectorAll('.card-title')[0].innerText = '柳贤镇';
+        document.querySelectorAll('.card-title')[1].innerText = 'Faker';
+        document.querySelectorAll('.card-title')[2].innerText = '孙兴民';
+        document.querySelectorAll('.card-text')[0].innerText = "柳贤镇是一位韩国职业棒球运动员，活跃于美国职业棒球大联盟（MLB），是一位出色的投手，提升了韩国棒球的地位。 2013年，柳贤镇与LA Dodgers签约并进入大联盟，迅速成为球队的重要先发投手。 特别是在2019赛季，他表现出色，以2.32的防御率名列联盟第一，还被提名为赛艾杨奖的候选人。";
+        document.querySelectorAll('.card-text')[1].innerText = "Faker（Lee Sang-hyeok）是韩国的职业游戏选手，也是《英雄联盟》（LoL）历史上最伟大的选手之一。 2013年，Faker与SK Telecom T1（现为T1）签约并首次亮相，以其出色的游戏技能和战略理解，多次带领团队赢得世界冠军。 他曾三次（2013年，2015年，2016年）赢得LOL世界冠军，并获得了“中路之神”的称号。 他惊人的身体素质，富有创造力的打法和压倒性的表现，启发了许多人，并因其勤奋谦虚的态度而受到许多球迷和同行的尊敬。";
+        document.querySelectorAll('.card-text')[2].innerText = "孙兴民是韩国足球运动员，司职前锋。 他目前效力于英格兰超级联赛的托特纳姆热刺队和韩国国家足球队，同时担任两队的队长。 他被认为是俱乐部表现最出色的亚洲足球运动员之一。 孙兴民以出色的盘带、速度和准确的射门能力而闻名，并因其为";
+        document.querySelectorAll('.card-title')[4].innerText = '防弹少年团';
+    document.querySelectorAll('.card-title')[5].innerText = 'PSY（朴载相）';
+    document.querySelectorAll('.card-title')[6].innerText = '奉俊昊';
+    
+    document.querySelectorAll('.card-text')[4].innerText = "防弹少年团（BTS）是一支来自韩国的男子音乐团体，于2013年出道。由RM、Jin、Suga、J-Hope、Jimin、V和Jungkook组成的这个团体在全球范围内享有巨大的人气。BTS在音乐、表演和与粉丝的交流方面展现出卓越的能力，通过《Love Yourself》和《Map of the Soul》等多种专辑传达自我发现、爱与社会问题等深刻的信息。他们取得了国际上的成功，登顶了公告牌排行榜，并获得了格莱美奖提名，同时通过他们的联合国演讲和参与社会活动而受到尊敬，被认为是全球艺术家。";
+    document.querySelectorAll('.card-text')[5].innerText = "PSY（朴载相）是韩国的歌手，以《江南Style》在全球范围内引起轰动。2012年发布的《江南Style》在YouTube上的点击率超过40亿，成为全球热门歌曲，赢得了PSY国际认可。他独特的音乐、幽默的音乐视频和令人上瘾的舞蹈赢得了广泛的欢迎。PSY的后续单曲如《绅士》和《爸爸》也取得了成功，为韩流的全球传播做出了贡献。他的音乐以活泼愉快的能量著称，受到全球粉丝的喜爱，确立了PSY作为全球明星的地位。";
+    document.querySelectorAll('.card-text')[6].innerText = "奉俊昊是韩国的电影导演，以《寄生虫》赢得了戛纳电影节金棕榈奖和奥斯卡最佳影片奖。他的作品包括《杀人回忆》、《怪物》、《妈妈》、《雪国列车》和《饲养员》等多样化的作品，以其独特的导演手法和充满社会信息的故事获得了国际认可。尤其是《寄生虫》于2019年在戛纳斩获金棕榈奖，并在2020年奥斯卡获得了最佳影片、最佳导演、最佳原创剧本和最佳国际影片奖，引起了全球轰动。奉俊昊以其电影视野和出色的电影制作激励了许多人，并为提升韩国电影的国际地位做出了巨大贡献。";
+    document.querySelectorAll('.card-title')[8].innerText = '世宗大王';
+    document.querySelectorAll('.card-title')[9].innerText = '李舜臣';
+    document.querySelectorAll('.card-title')[10].innerText = '申师任堂';
+    
+    document.querySelectorAll('.card-text')[8].innerText = "世宗大王是朝鲜的第四代国王，通过创造韩文字为韩国历史做出了巨大贡献。在他统治期间，他实施了在科学、经济、军事等各个领域的创新政策。世宗大王最伟大的成就之一是创造了韩文字，至今仍然是韩国文化的重要组成部分。";
+    document.querySelectorAll('.card-text')[9].innerText = "李舜臣是朝鲜时代杰出的将领，在壬辰倭乱期间，他多次战胜日本海军，保卫了国家。特别是在韩山岛大捷和明良江海战中的战略胜利展示了他优秀的指挥能力。李舜臣至今仍然受到韩国人民的尊敬。";
+    document.querySelectorAll('.card-text')[10].innerText = "申师任堂是朝鲜时代的艺术家兼教育家，被评为韩国历史上的重要人物之一。她的本名是申仁善，她在绘画、诗歌、刺绣等多个艺术领域展现了卓越的才能。她的作品以细腻和自然的描绘而闻名。此外，申师任堂还以优秀的母亲而闻名，她的儿子李栗谷成为了朝鲜时代的代表性学者之一。申师任堂的肖像目前被绘制在韩国的5万韩元纸币上，她被尊重为对韩国文化和艺术发展做出贡献的人物。";
+}
+    </script>
+</head>
+<body>
+    <header>
+        <h1>한국을 빛낸 대표 인물소개</h1>
+    </header>
+    <div class="translate-menu">
+        <span class="hamburger" onclick="toggleMenu()">&#9776; Translate</span>
+        <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+        <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+        <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+        <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+    </div>
+    <div class="nav">
+        <a href="#sports">스포츠</a>
+        <a href="#culture">문화</a>
+        <a href="#history">역사</a>
+    </div>
+    <div id="sports" class="section container">
+        <div class="card">
+            <img src="https://file2.nocutnews.co.kr/newsroom/image/2019/08/12/20190812084933398676_0_710_463.jpg" alt="Bts">
+            <div class="card-content">
+                <div class="card-title">류현진</div>
+                <div class="card-text" id="t1">
+                    류현진은 대한민국의 프로 야구 선수로, 메이저리그(MLB)에서 활약하며 한국 야구의 위상을 높이고 있는 뛰어난 투수이다.2013년, LA 다저스와 계약하며 메이저리그에 진출한 류현진은 첫 시즌부터 안정적인 투구로 팀의 중요한 선발 투수로 자리 잡았다.
+                    그는 2019년 시즌에서 특히 뛰어난 활약을 보이며, 평균자책점(ERA) 2.32로 리그 1위를 기록하며 사이영상 후보에 오르기도 했다. 
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://cdn.gamemeca.com/data_center/279/423/20240202115406.jpg" alt="faker">
+            <div class="card-content">
+                <div class="card-title">페이커</div>
+                <div class="card-text">
+                    페이커(이상혁)는 대한민국의 프로게이머로, 리그 오브 레전드(푸하하) 역사상 가장 뛰어난 선수 중 한 명이다. 2013년 SK Telecom T1(현재의 T1)에 입단하여 데뷔한 이후, 뛰어난 게임 실력과 전략적 이해로 팀을 여러 차례 세계 챔피언으로 이끌었다. 그는 LOL 월드 챔피언십에서 세 번(2013, 2015, 2016) 우승을 차지하며, '미드라이너의 신'이라는 별칭을 얻었다. 그의 놀라운 피지컬, 창의적인 플레이 스타일, 압도적인 경기력은 많은 이들에게 영감을 주었으며, 성실하고 겸손한 태도로 많은 팬들과 동료들에게 존경받고 있다.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/sk/2021/06/14/SK001_20210614_250101.jpg" alt="손흥민">
+            <div class="card-content">
+                <div class="card-title">손흥민</div>
+                <div class="card-text">
+                     손흥민은대한민국의 축구 선수로 포지션은 공격수이다. 현재 잉글랜드 프리미어리그의 토트넘 홋스퍼와 대한민국 축구 국가대표팀에서 활동하고 있으며 두 팀의 주장을 맡고 있다. 그는 구단에서의 활약을 바탕으로 역대 최고의 아시아 축구 선수 중 한 명으로 간주되고 있다. 손흥민은 뛰어난 드리블, 속도, 정확한 슈팅 능력으로 유명하며, 팀을 위한 헌신적인 플레이로 많은 이들에게 존경받고 있다. 또한, 그는 대한민국 국가대표팀의 주축 선수로, 아시안 게임 금메달과 월드컵에서의 활약을 통해 국가적인 영웅으로 불리고 있다.
+                </div>
+            </div>
+            
+    </div>
+    <div class="card">
+        <img src="https://i.namu.wiki/i/FdAGZ39jnXK_DBV06-zu2BFeZMdVfHw3fP8ZQeDYjtrRJNB4BvzIV0uomDUnCqq6mao0F6hBF8L3rdM_9iUodu1-QEgrL1Y2aC9kfjnqClwP635TGp9pwwLEhGbo9d1PzZlt6HyjV-643HGRDcYk4A.webp" alt="박인비">
+        <div class="card-content">
+            <div class="card-title">박인비</div>
+            <div class="card-text">
+                박인비는 대한민국의 프로 골프 선수로, LPGA 투어에서 활동하고 있다. 그녀는 메이저 대회에서 7번 우승하며, 골프 역사상 가장 뛰어난 여성 선수 중 한 명으로 평가받고 있다. 박인비는 2013년, 한 해에 3개의 메이저 대회를 석권하며 골프계의 주목을 받았다. 그녀의 안정적인 퍼팅과 일관된 경기력은 많은 팬들에게 감동을 주었으며, '퍼팅의 여왕'이라는 별명을 얻었다. 또한, 2016년 리우 올림픽에서 금메달을 획득하며 대한민국 여자 골프의 위상을 세계에 알렸다. 박인비는 현재까지도 꾸준한 활약을 이어가며 전 세계 골프 팬들에게 큰 영감을 주고 있다.
+            </div>
+        </div>
+        </div>
+        <div id="culture" class="section container">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/BTS_during_a_White_House_press_conference_May_31%2C_2022_%28cropped%29.jpg" alt="Bts">
+                <div class="card-content">
+                    <div class="card-title">Bts</div>
+                    <div class="card-text">
+                        BTS(방탄소년단)는 대한민국의 보이 그룹으로, 2013년에 데뷔하였다. RM, 진, 슈가, 제이홉, 지민, 뷔, 정국으로 구성된 이 그룹은 현재 세계적인 인기를 누리고 있다. BTS는 음악, 퍼포먼스, 팬과의 소통에서 탁월한 역량을 보여주며, 'Love Yourself' 시리즈와 'Map of the Soul' 시리즈 등 다양한 앨범을 통해 자아 발견, 사랑, 사회적 이슈 등 깊이 있는 메시지를 전달한다. 이들은 빌보드 차트 1위 기록과 그래미 어워드 노미네이트 등 국제적인 성과를 이루었으며, 유엔 연설과 사회적 캠페인에 참여하며 글로벌 아티스트로 존경받고 있다.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://flexible.img.hani.co.kr/flexible/normal/800/533/imgdb/original/2021/0127/20210127503920.jpg" alt="psy">
+                <div class="card-content">
+                    <div class="card-title">싸이</div>
+                    <div class="card-text">
+                        싸이(Psy)는 대한민국의 가수로, '강남스타일'로 세계적인 신드롬을 일으켰다. 2012년에 발표된 '강남스타일'은 유튜브 조회수 40억 회를 넘기며 글로벌 히트를 기록했고, 싸이는 이 곡으로 국제적인 인지도를 얻었다. 그의 독창적인 음악과 유머러스한 뮤직비디오, 중독성 있는 춤은 많은 이들에게 큰 인기를 끌었다. 싸이는 '젠틀맨', '대디' 등 후속곡들도 성공시키며, K-pop의 글로벌 확산에 큰 기여를 했다. 그의 음악은 경쾌하고 유쾌한 에너지로 많은 팬들에게 사랑받고 있으며, 싸이는 전 세계적인 스타로 자리매김하고 있다.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://news.kbs.co.kr/data/news/2020/02/10/4378806_wGD.jpg" alt="봉준호">
+                <div class="card-content">
+                    <div class="card-title">봉준호</div>
+                    <div class="card-text">
+                        봉준호는 대한민국의 영화 감독으로, '기생충'으로 칸 영화제 황금종려상과 아카데미 작품상을 수상한 인물이다. '살인의 추억', '괴물', '마더', '설국열차', '옥자' 등 다양한 작품에서 독창적인 연출과 사회적 메시지를 담은 스토리로 국제적인 인정을 받았다. 특히 '기생충'은 2019년 칸 영화제에서 황금종려상을 수상하고, 2020년 아카데미 시상식에서 작품상, 감독상, 각본상, 국제영화상을 수상하며 전 세계적으로 큰 반향을 일으켰다. 봉준호는 그의 영화적 비전과 탁월한 연출력으로 많은 이들에게 큰 영감을 주고 있으며, 한국 영화의 국제적 위상을 높이는 데 큰 기여를 하고 있다.
+                    </div>
+                </div>
+                
+        </div>
+        <div class="card">
+            <img src="https://cdn.hankyung.com/photo/202206/01.30260977.1.jpg" alt="송강호">
+            <div class="card-content">
+                <div class="card-title">송강호</div>
+                <div class="card-text">
+                    송강호는 대한민국의 배우로, 뛰어난 연기력과 다양한 역할 소화력으로 국제적인 명성을 얻고 있다. 그는 '살인의 추억', '괴물', '밀양', '설국열차', '택시운전사' 등 다양한 영화에서 주연을 맡아 깊이 있는 연기를 선보였다. 특히, 봉준호 감독의 '기생충'에서는 주인공 김기택 역을 맡아 강렬한 연기를 펼치며, 영화가 칸 영화제 황금종려상과 아카데미 작품상을 수상하는 데 크게 기여했다. 송강호는 그의 연기력으로 칸 영화제, 아시아태평양 스크린 어워드 등 다양한 국제 영화제에서 수상하며, 한국을 대표하는 배우로 자리매김했다. 그의 캐릭터 해석 능력과 감정 표현력은 많은 관객들에게 깊은 인상을 남겼고, 송강호는 오늘날까지도 활발한 활동을 이어가며 전 세계 영화 팬들에게 큰 영감을 주고 있다.
+                </div>
+            </div>
+            </div>
+            <div id="history" class="section container">
+                <div class="card">
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAxMDJfNTIg%2FMDAxNzA0MTYyNTQzODE3.Pku3Q-WYaaoTR1VbZLy17FEf2OpkMSBpo4mSBbA2LcAg.4P65OMJqLt8gYSR-PkAk8LQzzKC5ipkmpd9fNaPosMAg.PNG.dlfwoggg%2Fimage.png&type=sc960_832" alt="세종대왕">
+                    <div class="card-content">
+                        <div class="card-title">세종대왕</div>
+                        <div class="card-text">
+                            세종대왕은 조선 제4대 왕으로 한글 창제를 통해 한국 역사에 큰 공헌을 한 위대한 인물입니다. 그의 통치 기간 동안 과학, 경제, 군사 등 다양한 분야에서 혁신적인 정책을 시행하였습니다. 세종대왕의 업적 중 가장 큰 것은 한글의 창제로, 이는 오늘날까지도 한국 문화의 중요한 부분을 차지하고 있습니다.
+                        </div>
+        
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MjZfMjEx%2FMDAxNzE0MTE1MDYwODg4.LDjmhXlCZsGgu-1Yge7AcRXjciz51Dom70R7TL6dkBcg.yN0oCjsJtmdyapWN27ADhXSYeibhg9o051SYLB0RTesg.PNG%2F%25BB%25E7%25C1%25F8%25C6%25B2-002_%25281%2529.png&type=sc960_832" alt="이순신">
+                    <div class="card-content">
+                        <div class="card-title">이순신</div>
+                        <div class="card-text">
+                            이순신은 조선 시대의 뛰어난 장군으로, 임진왜란 당시 왜군을 상대로 여러 차례 해전에서 승리를 거두며 나라를 지킨 영웅입니다. 특히 한산도 대첩과 명량 해전에서의 전략적 승리는 그의 뛰어난 지휘 능력을 보여줍니다. 충무공 이순신은 오늘날까지도 한국의 위대한 역사적 인물로 존경받고 있습니다.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://i.namu.wiki/i/LtRkYNe22izvxC7bVhb5ymQyXEIpsbsPJIjLOay67bEYa92jBL6MIsQteUWdqwVRW0N_DSwnAeqG4KRtehqKkA.webp" alt="신사임당">
+                    <div class="card-content">
+                        <div class="card-title">신사임당</div>
+                        <div class="card-text">
+                            신사임당은 조선 시대의 예술가이자 교육자로, 대한민국 역사에서 중요한 인물 중 하나로 평가받는다. 본명은 신인선이며, 그녀는 한국의 대표적인 여성 예술가로 그림, 시, 자수 등 다양한 예술 분야에서 뛰어난 재능을 보였다. 그녀의 작품은 섬세하고 자연을 잘 표현한 것으로 유명하다. 또한, 신사임당은 훌륭한 어머니로도 알려져 있는데, 그녀의 아들인 율곡 이이는 조선 시대의 대표적인 학자로 성장하였다. 신사임당은 현재 한국의 50,000원 지폐에 초상화가 그려져 있으며, 한국 문화와 예술의 발전에 기여한 인물로 존경받고 있다.
+                        </div>
+                    </div>
+                    
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5NdxHwEpVeKH8BCW9QjTrcmDw6VVPMZU8w--z1YL9mA&s" alt="김구">
+                <div class="card-content">
+                    <div class="card-title">김구</div>
+                    <div class="card-text">
+                        김구는 대한민국의 독립운동가이자 정치가로, 일제 강점기 동안 독립운동을 이끈 지도자이다. 백범 김구로도 알려진 그는 대한민국 임시정부의 주석으로 활동하며, 조국의 독립을 위해 헌신하였다. 김구는 '백범일지'를 저술하여 자신의 삶과 독립운동의 과정을 기록하였으며, 이는 후세에 큰 영향을 주었다. 그는 광복 후에도 통일된 대한민국의 건국을 위해 노력하였으나, 1949년 암살당하였다. 김구는 한국 역사에서 독립과 자유를 위해 싸운 위대한 지도자로 기억되며, 그의 애국정신은 오늘날까지 많은 이들에게 영감을 주고 있다.
+                    </div>
+                </div>
+                </div>
+</body>
+</html>

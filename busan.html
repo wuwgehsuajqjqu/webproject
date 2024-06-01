@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 부산- 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           background-image: url(https://img.freepik.com/free-photo/gwangan-bridge-haeundae-night-busan-korea_335224-405.jpg?t=st=1716192897~exp=1716196497~hmac=07a19bc4e3c60efe038a4f5f9e38bea5e3482f67f23de56dc4d8fed3088c715c&w=996);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgba(147, 112, 219, 0.5);
+            color: white;
+            padding: 10px 0;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            color: #250505; 
+            font-size: 1.8em;
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s ease; 
+        }
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9); 
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure the menu is above other content */
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px; /* Adjust the top position for larger screens */
+            }
+        }
+
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+        .prev-page-arrow, .next-page-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.prev-page-arrow:hover, .next-page-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-page-arrow {
+    left: 10px;
+}
+
+.next-page-arrow {
+    right: 10px;
+}
+
+            
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+     <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+
+        function ToEnglish() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = 'The origin of Dongnae Pajeon is uncertain, but it is said to have been provided as a meal when building castles during the Joseon Dynasty or made by courtesans who received palace cuisine in Dongnae. There is also a theory that it evolved into a snack for entertaining high-ranking officials of the court. Dongnae Pajeon is a specialty of Busan made from the abundant agricultural and marine products of Dongnae. After the Japanese colonial period, Dongnae developed into a tourist destination, becoming a popular dish. The Dongnae Pajeon Research Society was established in 2004 to promote it nationwide, and efforts have been made since 2007 to register trademarks to make it a representative food of Busan.';
+            const translatedHeader = 'Representative Specialty of Busan';
+            const translatedSubHeader = 'Dongnae Pajeon';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToJapanese() {
+        const textElement = document.getElementById('text-to-translate');
+        const headerElement = document.querySelector('header h1');
+        const subHeaderElement = document.querySelector('.info-page h2');
+
+        const translatedText = '東莱パジョンの由来は定かではないが、朝鮮時代に城を築く時に食事として提供されたり、宮中料理が東莱に伝えられ、妓生が作ったものだという話が伝えられている。 また、朝廷の高官を接待するための酒の肴に発展したという説もある。 東莱パジョンは釜山東莱の豊富な農産物と海産物で作られた釜山の特産品だ。 日帝強占期以後、東莱が観光地に発展し大衆的な食べ物になった。 2004年に東莱パジョン研究会が発足し、全国的に広報しており、2007年から商標登録を通じて釜山の代表的な食べ物にするための努力が続いています。';
+        const translatedHeader = '釜山の代表的な特産品';
+        const translatedSubHeader = '東莱パジョン';
+
+        textElement.innerHTML = translatedText;
+        headerElement.innerHTML = translatedHeader;
+        subHeaderElement.innerHTML = translatedSubHeader;
+    }
+
+    function ToChinese() {
+        const textElement = document.getElementById('text-to-translate');
+        const headerElement = document.querySelector('header h1');
+        const subHeaderElement = document.querySelector('.info-page h2');
+
+        const translatedText = '东来葱饼的起源虽然不确定，但据说它是在朝鲜时代筑城时提供的一餐，或者是在东来传递宫廷菜肴的过程中由妓女制作的。还有一种理论认为，它演变成了招待朝廷高官的小吃。东来葱饼是釜山的特产，由东来丰富的农产品和海产品制成。日本殖民时期过后，东来发展成为旅游胜地，成为了一种受欢迎的菜肴。2004年成立了东来葱饼研究会，以全国范围内进行推广，并自2007年以来，努力注册商标，使其成为釜山的代表性食品。';
+        const translatedHeader = '釜山的代表特产';
+        const translatedSubHeader = '东来葱饼';
+
+        textElement.innerHTML = translatedText;
+        headerElement.innerHTML = translatedHeader;
+        subHeaderElement.innerHTML = translatedSubHeader;
+    }
+    function ToKorean() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '동래 파전의 유래는 확실하지 않지만, 조선 시대에 성을 쌓을 때 끼니로 제공되었거나 궁중 요리가 동래에 전해져 기생들이 만든 것이라는 이야기가 전해진다. 또한, 조정 고관들을 접대하기 위한 술안주로 발전했다는 설도 있다. 동래 파전은 부산 동래의 풍부한 농산물과 해산물로 만들어진 부산의 특산품이다. 일제 강점기 이후 동래가 관광지로 발전하면서 대중적인 음식이 되었다. 2004년 동래파전연구회가 발족되어 전국적으로 홍보하고 있으며, 2007년부터 상표 등록을 통해 부산의 대표 먹을거리로 만들기 위한 노력이 이어지고 있다.';
+            const translatedHeader = '부산의 대표 특산품';
+            const translatedSubHeader = '동래파전';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        window.onload = function() {
+            alert("여기는 부산입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>부산의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+            <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>동래파전</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZpHvnPVhtJ0?si=x19R6mu1YHOoqTmP&amp;start=149" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p id="text-to-translate">동래 파전의 유래는 확실하지 않지만, 조선 시대에 성을 쌓을 때 끼니로 제공되었거나 궁중 요리가 동래에 전해져 기생들이 만든 것이라는 이야기가 전해진다. 또한, 조정 고관들을 접대하기 위한 술안주로 발전했다는 설도 있다. 동래 파전은 부산 동래의 풍부한 농산물과 해산물로 만들어진 부산의 특산품이다. 일제 강점기 이후 동래가 관광지로 발전하면서 대중적인 음식이 되었다. 2004년 동래파전연구회가 발족되어 전국적으로 홍보하고 있으며, 2007년부터 상표 등록을 통해 부산의 대표 먹을거리로 만들기 위한 노력이 이어지고 있다.
+               </p>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+<button class="next-page-arrow">&#10095;</button>
+</body>
+</html> 

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강원 - 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url(https://tourdb.gwd.go.kr/img/512/additional/2016/01/11/AG0040_I_01.JPG);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgb(203, 107, 44);
+            color: white;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            color: #250505; 
+            font-size: 1.8em;
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s ease; 
+        }
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9); 
+        }
+
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999;
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+        .prev-page-arrow, .next-page-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.prev-page-arrow:hover, .next-page-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-page-arrow {
+    left: 10px;
+}
+
+.next-page-arrow {
+    right: 10px;
+}
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+        function ToEnglish() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = 'Persimmons have been cultivated in China since before the Common Era. The book "Qimin Yaoshu" introduces how to make dried persimmons and remove their astringent taste. In Korea, the oldest record of persimmons dates back to 1138 during the reign of King Myeongjong of Goryeo, suggesting that persimmon cultivation began in the Goryeo period. Gangneung dried persimmons have a tradition of over 100 years, and the city of Gangneung is implementing various support projects to develop them as a premium product. In 2017, they promoted the distribution of all-weather drying facilities, set quality standards, and supported marketing efforts. From 2017 to 2018, they enhanced consumer-preferred packaging materials and food safety through the Saimdang dried persimmon small package support project.';
+            const translatedHeader = 'Gangwon\'s Representative Specialty';
+            const translatedSubHeader = 'Gangneung Dried Persimmon';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToKorean() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '중국에서는 기원전부터 감을 재배해왔으며, 『제민요술』에는 곶감 만드는 법과 떫은 맛을 제거하는 법이 소개되어 있다. 우리나라에서는 고려 명종 때인 1138년 고욤에 대한 기록이 가장 오래된 것으로, 감 재배는 고려 시대부터 시작된 것으로 추측된다. 강릉곶감은 100여 년의 전통을 지니고 있으며, 강릉시는 이를 명품으로 육성하기 위해 다양한 지원 사업을 펼치고 있다. 2017년에는 전천후 곶감 건조장 보급과 품질 기준 설정, 마케팅 지원 사업을 추진했고, 2017~2018년에는 신사임당 곶감 소포장 지원 사업을 통해 소비자 선호 포장재 개선 및 식품 안정성을 보완했다.';
+            const translatedHeader = '강원도의 대표 특산품';
+            const translatedSubHeader = '강릉곶감';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToJapanese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '中国では紀元前から柿が栽培されており、『斉民要術』には干し柿の作り方と渋味を取り除く方法が紹介されています。 韓国では高麗明宗の時代である1138年に柿についての記録が最も古く、柿の栽培は高麗時代から始まったと推測されます。 江陵干し柿は100年以上の伝統を持ち、江陵市はこれを名品として育成するために様々な支援事業を展開しています。 2017年には全天候型干し柿乾燥場の普及、品質基準の設定、マーケティング支援事業を推進し、2017年から2018年にかけて新斎民党干し柿小包装支援事業を通じて、消費者が好む包装材の改善と食品安全性の補完を行いました。';
+            const translatedHeader = '江原道の代表特産品';
+            const translatedSubHeader = '江陵干し柿';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        function ToChinese() {
+            const textElement = document.getElementById('text-to-translate');
+            const headerElement = document.querySelector('header h1');
+            const subHeaderElement = document.querySelector('.info-page h2');
+
+            const translatedText = '中国自公元前开始种植柿子，《齐民要术》介绍了制作柿饼和去除涩味的方法。 在韩国，关于柿子的最早记录可以追溯到1138年高丽明宗时期，表明柿子的种植始于高丽时期。 江陵柿饼有着100多年的传统，江陵市正在实施各种支持项目，以将其发展为优质产品。 2017年，他们推广了全天候干燥设施，设定了质量标准，并支持营销工作。 从2017年到2018年，他们通过新斋民党柿饼小包装支持项目，增强了消费者喜爱的包装材料和食品安全。';
+            const translatedHeader = '江原道的代表特产';
+            const translatedSubHeader = '江陵柿饼';
+
+            textElement.innerHTML = translatedText;
+            headerElement.innerHTML = translatedHeader;
+            subHeaderElement.innerHTML = translatedSubHeader;
+        }
+
+        window.onload = function() {
+            alert("여기는 강원도입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>강원도의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+            <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>강릉곶감</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Azq5m8ynDV8?si=gQw-sJ40j8JQysis&amp;start=149" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div><p id="text-to-translate">중국에서는 기원전부터 감을 재배해왔으며, 『제민요술』에는 곶감 만드는 법과 떫은 맛을 제거하는 법이 소개되어 있다. 우리나라에서는 고려 명종 때인 1138년 고욤에 대한 기록이 가장 오래된 것으로, 감 재배는 고려 시대부터 시작된 것으로 추측된다. 강릉곶감은 100여 년의 전통을 지니고 있으며, 강릉시는 이를 명품으로 육성하기 위해 다양한 지원 사업을 펼치고 있다. 2017년에는 전천후 곶감 건조장 보급과 품질 기준 설정, 마케팅 지원 사업을 추진했고, 2017~2018년에는 신사임당 곶감 소포장 지원 사업을 통해 소비자 선호 포장재 개선 및 식품 안정성을 보완했다.
+               </p>
+            </div>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+    <button class="next-page-arrow">&#10095;</button>
+</body>
+</html>

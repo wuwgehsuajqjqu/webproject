@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전주 - 대표 특산품 소개</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif KR', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url(https://hanok.jeonju.go.kr/assets/images/contents/tour/info-main-img2.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: rgba(137, 101, 101, 0.76);
+            color: black;
+            padding: 10px 0;
+        }
+
+        .info-page {
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .info-page iframe {
+            width: 100%;
+            height: 225px;
+        }
+
+        .info-page p {
+            text-align: justify;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .info-page h2 {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            color: #250505; 
+            font-size: 1.8em;
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s ease; 
+        }
+        .info-page h2:hover {
+            background-color: rgba(255, 255, 255, 0.9); 
+        }
+        @media (min-width: 600px) {
+            .info-page iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto 100%;
+                background-position: top;
+            }
+        }
+
+        .translate-menu {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure the menu is above other content */
+        }
+
+        .translate-menu .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .translate-menu .translate-button {
+            display: none;
+            margin-top: 5px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .translate-menu.active .translate-button {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .translate-menu {
+                position: absolute;
+                bottom: auto;
+                right: 0;
+                top: 10px; /* Adjust the top position for larger screens */
+            }
+        }
+        .prev-page-arrow, .next-page-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.prev-page-arrow:hover, .next-page-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-page-arrow {
+    left: 10px;
+}
+
+.next-page-arrow {
+    right: 10px;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+    var pages = [
+        "seoul.html",
+        "suwon.html",
+        "busan.html",
+        "jeju.html",
+        "jeonju.html",
+        "daejeon.html",
+        "gangwon.html",
+        "chunan.html"
+    ];
+    
+    var currentPage = window.location.pathname.split("/").pop();
+    var currentIndex = pages.indexOf(currentPage);
+
+    if (currentIndex !== -1) {
+        $('.next-page-arrow').click(function() {
+            var nextPage = pages[(currentIndex + 1) % pages.length];
+            window.location.href = nextPage;
+        });
+
+        $('.prev-page-arrow').click(function() {
+            var prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+            window.location.href = prevPage;
+        });
+    } else {
+        console.error("Current page not found in the list of pages.");
+    }
+});
+
+        function ToEnglish() {
+            const headerElement = document.querySelector('header h1');
+
+            const translatedHeader = 'Representative Specialty of Jeonju';
+            headerElement.innerHTML = translatedHeader;
+        }
+
+        function ToJapanese() {
+            const headerElement = document.querySelector('header h1');
+
+            const translatedHeader = '전주의 대표 특산품';
+            headerElement.innerHTML = translatedHeader;
+        }
+
+        function ToChinese() {
+            const headerElement = document.querySelector('header h1');
+
+            const translatedHeader = '全州的代表性特产';
+            headerElement.innerHTML = translatedHeader;
+        }
+
+        function ToKorean() {
+            const headerElement = document.querySelector('header h1');
+
+            const translatedHeader = '전주의 대표 특산품';
+            headerElement.innerHTML = translatedHeader;
+        }
+
+        window.onload = function() {
+            alert("여기는 전주입니다");
+
+            const menu = document.querySelector('.translate-menu');
+            menu.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>전주의 대표 특산품</h1>
+        <div class="translate-menu">
+            <span class="hamburger">&#9776; Translate</span>
+            <div class="translate-button-korean translate-button" onclick="ToKorean()">한국어</div>
+            <div class="translate-button translate-button" onclick="ToEnglish()">English</div>
+            <div class="translate-button-japanese translate-button" onclick="ToJapanese()">日本語</div>
+            <div class="translate-button-chinese translate-button" onclick="ToChinese()">中文</div>
+        </div>
+    </header>
+    <main>
+        <section class="info-page">
+            <h2>전주비빔밥</h2>
+            <iframe src="https://www.youtube.com/embed/qQ-_bjUJ1lY?si=cazY1284eCIFQLkj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p>
+                콩나물비빔밥으로도 알려진 전주의 특산품은 궁중음식에서 비롯되어 서민음식으로 발전한 것으로 알려져 있습니다. 전주비빔밥은 쌀, 콩나물,
+                황포묵, 고추장, 쇠고기 육회 또는 볶음, 접장, 참기름, 달걀 등의 주재료와 계절에 따라 달라지는 다양한 부재료로 만들어집니다. 만드는 법은 양지머리 육수로 지은 밥에 다양한 나물과 고추장, 육회, 황포묵을 얹어 비벼 먹는 것입니다. 전주비빔밥에는 콩나물국과 황포묵이 반드시 포함되며, 황포묵은 전주의 좋은 수질 덕분에 유명합니다.
+            </p>
+            <h2>콩나물 국밥</h2>
+            <iframe src="https://www.youtube.com/embed/95aW7CWpLJY?si=yThhPdXFQpD6oPzU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p>
+                전주의 특산품인 콩나물국밥은 콩나물국에 밥을 넣고 끓인 후 날계란을 얹어 내는 해장음식입니다. 전주는 물류의 중심지로서 콩나물이 유명하며, 전주의 콩나물은 질이 좋기로 알려져 있습니다. 콩나물국밥은 조선후기 문헌에 등장하며, 오래전부터 전주의 대표적인 향토음식으로 자리 잡아 왔습니다. 1929년 대중잡지 『별건곤』에서는 서울의 설렁탕, 평양의 어복쟁반과 함께 서민들의 3대 명물음식으로 소개되었습니다.
+            </p>
+        </section>
+    </main>
+    <button class="prev-page-arrow">&#10094;</button>
+    <button class="next-page-arrow">&#10095;</button> 
+</body>
+</html>
